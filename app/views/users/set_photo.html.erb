@@ -1,0 +1,68 @@
+<div class="container mt-20">
+  <% if @user.present? %>
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2 class="mrg10A">Create Your Profile</h2>
+        <hr>
+        <ul class="steps-flow p-0 mb-20">
+          <li class="ptb-10 prl-10 done">1 About</li>
+          <li id="tab-step2" class="ptb-10 prl-10 done">2 Profile picture</li>
+          <li id="tab-step3" class="ptb-10 prl-10">3 More details</li>
+          <li id="tab-step4" class="ptb-10 prl-10">4 Medical histories</li>
+          <li id="tab-step5" class="ptb-10 prl-10">5 Family members</li>
+        </ul>
+        <hr>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">1 About</a></li>
+          <li class="breadcrumb-item" id="tab-link2"><a href="#" class="active">2 Profile picture</a></li>
+        </ol>
+      </div>
+    </div>
+    <!-- Start step 2 -->
+
+    <div id="step2" class="row mt-20" >
+      <div class="col-lg-6 col-md-8 col-sm-10 col-sx-12">
+        <div class = "panel panel-default">
+          <div class = "panel-body">
+            <form name="uploader-photo" class="form-upload-photo">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-sx-12">
+                  <div class="wrap-default-picture">
+                    <img src="/img/default.png" alt="default picture">
+                  </div>
+                  <div class="caption" id="caption-photo"></div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-sx-12">
+                  <div class="row text-center">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                      <div id="upl-fr-pc" class="text-uppercase text-center pt-60">
+                        <strong class="wrap-field action text-transform">
+                          Upload photo
+                          <input type="file" name="photo" id="photo" class="action">
+                        </strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12 pt-20 text-right">
+                  <%= link_to 'Skip', set_profile_details_path({id: @user.id}), class: 'btn btn-default'%>
+                  <button class="btn btn-azure" id="save-photo">Save photo</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- End step 2 -->
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2 class="mrg10A">User not found</h2>
+      </div>
+    </div>
+  <% end %>
+</div>

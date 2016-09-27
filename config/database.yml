@@ -1,0 +1,24 @@
+# Default configuration for PostgreSQL database
+default: &default
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: abraar
+  password: abraar
+
+# Database configuration for the development environment
+development:
+  <<: *default
+  database: dokterku_development
+
+# Database configuration for the test environment
+test:
+  <<: *default
+  database: dokterku_test
+
+# Database configuration for the production environment
+# Production environment will run on Heroku,
+# thus the DATABASE_URL variable will automatically be set by Heroku
+production:
+  url: <%= ENV['DATABASE_URL'] %>

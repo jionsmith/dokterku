@@ -1,0 +1,137 @@
+<div class="container mt-20">
+  <% if @user.present? %>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2 class="mrg10A">Create Your Profile</h2>
+        <hr>
+        <ul class="steps-flow p-0 mb-20">
+          <li class="ptb-10 prl-10 done">1 About</li>
+          <li id="tab-step2" class="ptb-10 prl-10 done">2 Profile picture</li>
+          <li id="tab-step3" class="ptb-10 prl-10 done">3 More details</li>
+          <li id="tab-step4" class="ptb-10 prl-10 done">4 Medical histories</li>
+          <li id="tab-step5" class="ptb-10 prl-10 done">5 Family members</li>
+        </ul>
+        <hr>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">1 About</a></li>
+          <li class="breadcrumb-item" id="tab-link2"><a href="#">2 Profile picture</a></li>
+          <li class="breadcrumb-item" id="tab-link3"><a href="#">3 More details</a></li>
+          <li class="breadcrumb-item" id="tab-link4"><a href="#">4 Medical histories</a></li>
+          <li class="breadcrumb-item" id="tab-link5"><a href="#" class="active">5 Family members</a></li>
+        </ol>
+      </div>
+    </div>
+    <!-- Start step 5 -->
+    <div id="step5" class="row mt-20">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+        <form name="step5">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <h5 class="mrg10A">Add family members</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-7 col-md-8 col-sm-10 col-sx-12">
+              <div class = "panel panel-default">
+                <div class = "panel-body">
+                  <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-sx-4">
+                      Family member
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-8 col-sx-8">
+                      <div class="row">
+                        <div class="col-lg-2 col-md-4 col-sm-4 col-sx-4">
+                          <div class="wrap-photo">
+                            <img id='family-member' src="" alt="">
+                          </div>
+                        </div>
+                        <div class="col-lg-10 col-md-8 col-sm-8 col-sx-8">
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                              <div class="form-group">
+                                <div>
+                                  <input type="text" class="form-control" name="rm_number" placeholder="Enter user's rm">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                              <div class="selector">
+                                <select name="relative_type" class="custom-select pl-10">
+                                  <option value="Mother">Mother</option>
+                                  <option value="Father">Father</option>
+                                  <option value="Daughter">Daughter</option>
+                                  <option value="Son">Son</option>
+                                  <option value="Sister">Sister</option>
+                                  <option value="Brother">Brother</option>
+                                  <option value="Aunt">Aunt</option>
+                                  <option value="Uncle">Uncle</option>
+                                  <option value="Niece">Niece</option>
+                                  <option value="Nephew">Nephew</option>
+                                  <option value="Cousin (female)">Cousin (female)</option>
+                                  <option value="Cousin (male)">Cousin (male)</option>
+                                  <option value="Grandmother">Grandmother</option>
+                                  <option value="Grandfather">Grandfather</option>
+                                  <option value="Granddaughter">Granddaughter</option>
+                                  <option value="Grandson">Grandson</option>
+                                  <option value="Stepsister">Stepsister</option>
+                                  <option value="Stepbrother">Stepbrother</option>
+                                  <option value="Stepmother">Stepmother</option>
+                                  <option value="Stepfather">Stepfather</option>
+                                  <option value="Stepdaughter">Stepdaughter</option>
+                                  <option value="Stepson">Stepson</option>
+                                  <option value="Sister-in-law">Sister-in-law</option>
+                                  <option value="Brother-in-law">Brother-in-law</option>
+                                  <option value="Mother-in-law">Mother-in-law</option>
+                                  <option value="Father-in-law">Father-in-law</option>
+                                  <option value="Daughter-in-law">Daughter-in-law</option>
+                                  <option value="Son-in-law">Son-in-law</option>
+                                  <option value="Sibling (gender neutral)">Sibling (gender neutral)</option>
+                                  <option value="Parent (gender neutral)">Parent (gender neutral)</option>
+                                  <option value="Child (gender neutral)">Child (gender neutral)</option>
+                                  <option value="Sibling-of-parent (gender neutral)">Sibling-of-parent (gender neutral)</option>
+                                  <option value="Child-of-sibling (gender neutral)">Child-of-sibling (gender neutral)</option>
+                                  <option value="Cousin (gender neutral)">Cousin (gender neutral)</option>
+                                  <option value="Grandparent (gender neutral)">Grandparent (gender neutral)</option>
+                                  <option value="Grandchild (gender neutral)">Grandchild (gender neutral)</option>
+                                  <option value="Step sibling (gender neutral)">Step sibling (gender neutral)</option>
+                                  <option value="Step child (gender neutral)">Step child (gender neutral)</option>
+                                  <option value="Sibling-in-law (gender neutral)">Sibling-in-law (gender neutral)</option>
+                                  <option value="Parent-in-law (gender neutral)">Parent-in-law (gender neutral)</option>
+                                  <option value="Child-in-law (gender neutral)">Child-in-law (gender neutral)</option>
+                                  <option value="Pet (gender neutral)">Pet (gender neutral)</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                      <span id="notice" class="pr-10" style="display: none">User found!</span>
+                      <div class="btn btn-default" id="skip-step5">Skip</div>
+                      <button class="btn btn-azure" id="save-relative" disabled="true">Save</button>
+                      <div class="btn btn-default" id="finish" style="display: none">Finish</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="family" class="row">
+          </div>
+        </form>
+      </div>
+    </div>
+  <% else %>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2 class="mrg10A">User not found</h2>
+        </div>
+      </div>
+  <% end %>
+  <!-- End step 5-->
+</div>

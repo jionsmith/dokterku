@@ -1,0 +1,343 @@
+<% content_for :title do %>
+    <title>New Visit Note | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+        <div id="verify-inst-user" class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <h2>Search patient</h2>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label">MR #</label>
+                    <div class="col-sm-9 pl-25">
+                      <input type="text" class="form-control" name="rm_number" placeholder="Enter mr number">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-sx-12">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">last name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="rm_number" placeholder="Enter last name">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-sx-12">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">First name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="rm_number" placeholder="Enter first name">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-sm-6 pr-20">
+                  <%= submit_tag "Next", class: 'btn ra-100 btn-primary btn-sm' %>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <ul class="steps-flow p-0 mb-20">
+                <li class="ptb-10 prl-30 done">Step 1</li>
+              </ul>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <h2>Visit note</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-40">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+            <%= form_tag(institution_visit_notes_path) do%>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Reason for visit</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="reason" placeholder="Enter reason">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Symptoms</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="symptoms" placeholder="Enter symptoms">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Medical history</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="medical_history" placeholder="Enter medical history">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Kesadaran</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="awareness" placeholder="Enter kesadaran">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Nadi</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="pulse" placeholder="Enter nadi">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Pernapasan</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="respiratory" placeholder="Enter pernapasan">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Suhu</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="temperature" placeholder="Enter suhu">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Tekanan darah</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="blood_pressure" placeholder="Enter tekanan darah">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Kepala</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="head" placeholder="Enter kepala">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Mata</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="eye" placeholder="Enter mata">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Telinga</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="telinga" placeholder="Enter telinga">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Hidung</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="ear" placeholder="Enter hidung">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Muluti</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="multi" placeholder="Enter multi">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Gigi</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="tooth" placeholder="Enter gigi">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Tenggorok</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="throat" placeholder="Enter tenggorok">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Leher</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="neck" placeholder="Enter leher">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Dada</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="chest" placeholder="Enter dada">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Kualitas Jantung</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="quality_heart" placeholder="Enter kualitas jantung">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Paru</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="lungs" placeholder="Enter paru">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Hepar</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="liver" placeholder="Enter hepar">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Lien</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="lien" placeholder="Enter lien">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Ginjal</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="kidneys" placeholder="Enter ginjal">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Perut</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="stomach" placeholder="Enter perut">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Kandungan</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="contents" placeholder="Enter kandungan">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Kemaluan</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="genitals" placeholder="Enter kemaluan">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Height</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="height " placeholder="Enter height">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">Weight</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="weight " placeholder="Enter weight">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">BMI(Body mass index)</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="bmi " placeholder="Enter BMI">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label text-right">BP(Blood pressure)</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="bp " placeholder="Enter BP">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-sm-6 pr-20">
+                  <%= submit_tag "Next", class: 'btn ra-100 btn-primary btn-sm' %>
+                </div>
+              </div>
+          <% end %>
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<% content_for :title do %>
+    <title>New Visit Note | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+        <div id="verify-inst-user" class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <ul class="steps-flow p-0 mb-20">
+                <li class="ptb-10 prl-30 done">Step 1</li>
+                <li class="ptb-10 prl-30 done">Step 2</li>
+              </ul>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <h2>Visit note</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-40">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+            <%= form_tag("/institutions/#{@institution.id}/visit_notes/#{@note.id}/set_diagnosis") do%>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Diagnosis awal</label>
+                    <div class="col-sm-10">
+                      <div class="selector">
+                        <select name="initial_diagnosis" class="custom-select pl-10">
+                          <option></option>
+                          <option value="Option 1">Option 1</option>
+                          <option value="Option 2">Option 2</option>
+                          <option value="Option 3">Option 3</option>
+                          <option value="Option 4">Option 4</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Diagnosis banding</label>
+                    <div class="col-sm-10">
+                      <div class="selector">
+                        <select name="differential_diagnosis" class="custom-select pl-10">
+                          <option></option>
+                          <option value="Option 1">Option 1</option>
+                          <option value="Option 2">Option 2</option>
+                          <option value="Option 3">Option 3</option>
+                          <option value="Option 4">Option 4</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Diagnosis akhir utama</label>
+                    <div class="col-sm-10">
+                      <div class="selector">
+                        <select name="final_diagnosis" class="custom-select pl-10">
+                          <option></option>
+                          <option value="Option 1">Option 1</option>
+                          <option value="Option 2">Option 2</option>
+                          <option value="Option 3">Option 3</option>
+                          <option value="Option 4">Option 4</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Diagnosis komplikasi</label>
+                    <div class="col-sm-10">
+                      <div class="selector">
+                        <select name="diagnosis_of_complications" class="custom-select pl-10">
+                          <option></option>
+                          <option value="Option 1">Option 1</option>
+                          <option value="Option 2">Option 2</option>
+                          <option value="Option 3">Option 3</option>
+                          <option value="Option 4">Option 4</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Diagnosis akhir kedua</label>
+                    <div class="col-sm-10">
+                      <div class="selector">
+                        <select name="second_diagnosis" class="custom-select pl-10">
+                          <option></option>
+                          <option value="Option 1">Option 1</option>
+                          <option value="Option 2">Option 2</option>
+                          <option value="Option 3">Option 3</option>
+                          <option value="Option 4">Option 4</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-sm-6 pr-20">
+                  <%= submit_tag "Next", class: 'btn ra-100 btn-primary btn-sm' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

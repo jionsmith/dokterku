@@ -1,0 +1,2 @@
+module RegAdminsHelper
+end

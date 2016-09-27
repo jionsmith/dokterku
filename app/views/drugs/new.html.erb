@@ -1,0 +1,97 @@
+<% content_for :title do %>
+    <title>New Drug | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+
+            <div id="verify-inst-user" class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2>Pharmacy</h2>
+                  <h4 class="mt-10">Drugs medicine database</h4>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-40">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                <%= form_tag(institution_drugs_path) do |t| %>
+                  <div class="row">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Kode obat</label>
+                      <div class="col-sm-5">
+                        <%= text_field_tag :code, nil, class: 'form-control', placeholder: 'Enter kode obat' %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Nama obat</label>
+                      <div class="col-sm-5">
+                        <%= text_field_tag :name, nil, class: 'form-control', placeholder: 'Enter nama obat' %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Price from supplier</label>
+                      <div class="col-sm-5">
+                        <input type="number" class="form-control" placeholder='Enter price' name="supplier_price">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Type of medicine</label>
+                      <div class="col-sm-5">
+                        <div class="selector">
+                          <select name="type_drug" class="custom-select pl-10">
+                            <option></option>
+                            <option value="ampul">ampul</option>
+                            <option value="botol">botol</option>
+                            <option value="box">box</option>
+                            <option value="cream">cream</option>
+                            <option value="injeksi">injeksi</option>
+                            <option value="kaplet">kaplet</option>
+                            <option value="lusin">lusin</option>
+                            <option value="ml-mililiter">ml-mililiter</option>
+                            <option value="pcs">pcs</option>
+                            <option value="syrup">syrup</option>
+                            <option value="tablet">tablet</option>
+                            <option value="vial">vial</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Supplier</label>
+                      <div class="col-sm-5">
+                        <div class="selector">
+                          <select name="supplier_id" class="custom-select pl-10">
+                            <option></option>
+                            <% @suppliers.each do |sup|%>
+                              <option value=<%= sup['supplier_id'] %> ><%= sup['supplier']['name']%></option>
+                            <% end %>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="row mt-20">
+                    <div class="col-sm-6 text-left">
+                      <%= submit_tag "Save", class: 'btn btn-primary btn-sm' %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

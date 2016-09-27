@@ -1,0 +1,467 @@
+<% content_for :title do %>
+    <title>New Hospitals | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+        <% if @hospital.present? && @hospital.admin_mr == current_user.rm_number%>
+            <div id="set_bed" class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2 class="mrg10A">Create Hospital</h2>
+                  <hr>
+                  <ul class="steps-flow p-0 mb-20">
+                    <li class="ptb-10 prl-10 done">1 Hospital profile</li>
+                    <li class="ptb-10 prl-10 done">2 Hospital details</li>
+                    <li class="ptb-10 prl-10 done">3 Hospital room details</li>
+                  </ul>
+                  <hr>
+                </div>
+              </div>
+              <!-- Form start -->
+              <%= form_tag("/hospitals/#{@hospital.id}/beds") do %>
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs">
+                      <div class="h5 mb-20"><strong>Beds</strong></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <!-- Left side-->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <!-- VVIP start -->
+                      <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>VVIP</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="vvip" disabled="true">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- VVIP End-->
+                      <!-- VIP start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>VIP</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="vip" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- VIP End-->
+                      <!-- I start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>I</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="i" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- I End-->
+                      <!-- II start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>II</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="ii" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- II End-->
+                      <!-- III start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>II</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="iii" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- III End-->
+                      <!-- ICU start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>ICU</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="icu" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- ICU End-->
+                      <!-- PICU start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>PICU</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="picu" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- PICU End-->
+                      <!-- NICU start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>NICU</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="nicu" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- NICU End-->
+                    </div>
+                    <!-- Left side end-->
+                    <!-- Right side start-->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <!-- ICCU start -->
+                      <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>ICCU</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="iccu" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- ICCU End-->
+                      <!-- HCU start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>HCU</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="hcu" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- HCU End-->
+                      <!-- Ruang Isolasi start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>Isolator</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="ruang_isolasi" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Ruang Isolasi End-->
+                      <!-- IGD start -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>IGD</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="igd" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- IGD End-->
+                      <!-- VK -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>VK</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="vk" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- VK End-->
+                      <!-- OK -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>OK</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="ok" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- OK End-->
+                      <!-- Perinatologi -->
+                      <div class="row mt-20">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <div class="checkbox checkbox-primary m-0">
+                              <label>
+                                <div class="checker" id="uniform-inlineCheckbox110">
+                            <span>
+                              <input type="checkbox" id="inlineCheckbox110" class="custom-checkbox">
+                              <i class="glyph-icon icon-check"></i>
+                            </span>
+                                </div>
+                                <strong>Perinatologi</strong>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs">
+                          <div class="form-group">
+                            <label class="col-sm-4 control-label">Qty</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" name="perinatologi" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Perinatologi End-->
+                    </div>
+                    <!-- Right side start-->
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-sm-6 text-left">
+                      <%= submit_tag "Save info", class: 'btn ra-100 btn-primary btn-sm' %>
+                    </div>
+                  </div>
+              <% end %>
+              <!-- Form End-->
+            </div>
+        <% else %>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2 class="mrg10A">Access denied</h2>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

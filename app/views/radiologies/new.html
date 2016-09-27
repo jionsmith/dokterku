@@ -1,0 +1,325 @@
+<% content_for :title do %>
+<title>New Radiologies | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+    <div id="page-wrapper">
+        <%= render 'partials/header' %>
+        <%= render 'partials/user_sidebar' %>
+        <div id="page-content-wrapper">
+            <div id="page-content">
+                <div id="verify-inst-user" class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                            <h2 class="mrg10A">Create Radiology</h2>
+                            <hr>
+                            <ul class="steps-flow p-0 mb-20">
+                                <li class="ptb-10 prl-10 done">1 Radiology profile</li>
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row mt-20">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                            <%= form_tag('', id: "institution-profile") do%>
+                            <input type="hidden" name="inst_type" value="medical vendor">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nomor Kode RS</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :nomor_kode_rs, nil, class: 'form-control', placeholder: 'Enter address' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nama rumah sakit</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :nama_rumah_sakit, nil, class: 'form-control', placeholder: 'Enter nama rumah sakit' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Institution's name</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :name, nil, class: 'form-control', placeholder: 'Enter name'%>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Jenis rumah sakit</label>
+                                    <div class="col-sm-5">
+                                        <div>
+                                            <div class="selector">
+                                                <select name="jenis_rumah_sakit" class="custom-select pl-10">
+                                                    <option></option>
+                                                    <option value="Rumah sakit umum">Rumah sakit umum</option>
+                                                    <option value="Rumah sakit terspesialisasi">Rumah sakit terspesialisasi</option>
+                                                    <option value="Rumah sakit penetilian/Pendidikan">Rumah sakit penetilian/Pendidikan</option>
+                                                    <option value="Rumah sakit lembaga/perusahaan">Rumah sakit lembaga/perusahaan</option>
+                                                </select>
+                                                <i class="glyph-icon icon-caret-down"></i>
+                                            </div>
+                                            <span class="red error-text">This value is required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Kelas rumah sakit</label>
+                                    <div class="col-sm-5">
+                                        <div class="selector">
+                                            <select name="kelas_rumah_sakit" class="custom-select pl-10">
+                                                <option></option>
+                                                <option value="Tipe A">Tipe A</option>
+                                                <option value="Tipe B">Tipe B</option>
+                                                <option value="Tipe C">Tipe C</option>
+                                                <option value="Tipe D">Tipe D</option>
+                                                <option value="Tipe E">Tipe E</option>
+                                            </select>
+                                            <i class="glyph-icon icon-caret-down"></i>
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Admin's MR# </label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :admin_mr, current_user.rm_number, class: 'form-control', disabled: true %>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Director's MR# </label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :director_mr, nil, class: 'form-control', placeholder: 'Enter name'%>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Penuelenggara</label>
+                                    <div class="col-sm-5">
+                                        <div class="selector">
+                                            <select name="penyelenggara" class="custom-select pl-10">
+                                                <option></option>
+                                                <option value="Yayasan">Yayasan</option>
+                                                <option value="Pemerintah Daerah">Pemerintah Daerah</option>
+                                                <option value="Pemerintah Pusat">Pemerintah Pusat</option>
+                                            </select>
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Penuelenggara RS</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :penyelenggara_rs, nil, class: 'form-control', placeholder: 'Enter penuelenggara rs' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nama</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :nama, nil, class: 'form-control', placeholder: 'Enter nama' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Status</label>
+                                    <div class="col-sm-5">
+                                        <div class="selector">
+                                            <select name="status" class="custom-select pl-10">
+                                                <option></option>
+                                                <option value="Yayasan">Penuh</option>
+                                                <option value="Bersyarat">Bersyarat</option>
+                                                <option value="Gagal">Gagal</option>
+                                                <option value="Belum">Belum</option>
+                                            </select>
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Date started</label>
+                                    <div class="col-sm-5">
+                                        <div class="input-prepend input-group">
+                          <span class="add-on input-group-addon">
+                              <i class="glyph-icon icon-calendar"></i>
+                          </span>
+                                            <input type="text" name="date_started" id="hospital_opened" class="bootstrap-datepicker form-control" value="">
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Pentahapan</label>
+                                    <div class="col-sm-5">
+                                        <div class="selector">
+                                            <select name="pentahapan" class="custom-select pl-10">
+                                                <option></option>
+                                                <option value="5 pelayalan">5 pelayalan</option>
+                                                <option value="12 pelayalan">12 pelayalan</option>
+                                                <option value="16 pelayalan">16 pelayalan</option>
+                                            </select>
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Akerditasi Depkes</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :akreditasi_depkes, nil, class: 'form-control', placeholder: 'Enter akreditasi depkes' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Tanggal Akerditasi</label>
+                                    <div class="col-sm-5">
+                                        <div class="input-prepend input-group">
+                          <span class="add-on input-group-addon">
+                              <i class="glyph-icon icon-calendar"></i>
+                          </span>
+                                            <input type="text" name="tanggal_akreditasi" id="tanggal_akreditasi" class="bootstrap-datepicker form-control" value="">
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Surat Izin/Penetapan</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :surat_izin, nil, class: 'form-control', placeholder: 'Enter surat izin' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nomor Izin</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :nomor_izin, nil, class: 'form-control', placeholder: 'Enter nomor izin' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nomor Sertificat</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :nomor_sertifikat, nil, class: 'form-control', placeholder: 'Enter nomor sertifikat' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Tanggal</label>
+                                    <div class="col-sm-5">
+                                        <div class="input-prepend input-group">
+                          <span class="add-on input-group-addon">
+                              <i class="glyph-icon icon-calendar"></i>
+                            </span>
+                                            <input type="text" name="tanggal" id="tanggal" class="bootstrap-datepicker form-control" value="">
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Oleh</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :oleh, nil, class: 'form-control', placeholder: 'Enter oleh' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Sifat</label>
+                                    <div class="col-sm-5">
+                                        <%= text_field_tag :sifat, nil, class: 'form-control', placeholder: 'Enter sifat' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Masa berlaku</label>
+                                    <div class="col-sm-5">
+                                        <div class="input-prepend input-group">
+                          <span class="add-on input-group-addon">
+                              <i class="glyph-icon icon-calendar"></i>
+                          </span>
+                                            <input type="text" name="masa_berlaku" id="masa_berlaku" class="bootstrap-datepicker form-control" value="">
+                                        </div>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Motto</label>
+                                    <div class="col-sm-5">
+                                        <%= text_area_tag :motto, nil, class: 'form-control', placeholder: 'Enter motto' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Misi</label>
+                                    <div class="col-sm-5">
+                                        <%= text_area_tag :misi, nil, class: 'form-control', placeholder: 'Enter misi' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Visi</label>
+                                    <div class="col-sm-5">
+                                        <%= text_area_tag :visi, nil, class: 'form-control', placeholder: 'Enter visi' %>
+                                        <span class="red error-text">This value is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-20">
+                                <div class="col-sm-7 text-right">
+                                    <%= submit_tag "Save info", class: 'btn ra-100 btn-primary btn-sm' %>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

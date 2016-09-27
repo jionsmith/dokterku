@@ -1,0 +1,189 @@
+<% content_for :title do %>
+<title>Suppliers | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+    <div id="page-wrapper">
+        <%= render 'partials/header' %>
+        <%= render 'partials/user_sidebar' %>
+        <div id="page-content-wrapper">
+            <div id="page-content">
+                    <div id="verify-inst-user" class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                                <h2><strong>Pharmacy</strong></h2>
+                                <h4 class="mt-10">Supplier medicine database</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-40">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                            <h3>Select in database</h3>
+                            <hr>
+                            <%= form_tag('', id: 'supplier-db') do%>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Kode suplier</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :supplier_code, nil, class: 'form-control', name: 'supplier_code'%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Name</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :name, nil, class: 'form-control', name: 'name'%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Search by</label>
+                                        <div class="col-sm-6">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="example-radio1" value="code">
+                                                Code
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="example-radio1" value="name">
+                                                Name
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="col-sm-6 text-left">
+                                        <%= submit_tag "Search", class: 'btn btn-primary btn-sm' %>
+                                    </div>
+                                </div>
+                            <% end %>
+                            <div class="row mt-40 result-block">
+                                <div class="col-lg-6" id="supplier-result">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-40">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                            <h3>Create and add new supplier</h3>
+                            <hr>
+                            <%= form_tag(institution_suppliers_path(institution_id: @institution.id)) do%>
+                                <div class="row mt-40">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Kode suplier</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :supplier_code, @supplier.supplier_code, class: 'form-control', disabled: true%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Company name</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :company_name, nil, class: 'form-control', placeholder: 'Enter company name' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Name</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :name, nil, class: 'form-control', placeholder: 'Enter name' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Phone</label>
+                                        <div class="col-sm-5">
+                                            <input type="number" class = 'form-control' placeholder="Enter phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Email</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'Enter email' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Address</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :address, nil, class: 'form-control', placeholder: 'Enter address' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Desa</label>
+                                        <div class="col-sm-5">
+                                            <div class="selector">
+                                                <%= country_select 'country', 'data', {include_blank: true}, {class: 'custom-select pl-10'} %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">RT/RW</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :rt_rw, nil, class: 'form-control', placeholder: 'Enter rt/rw' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Kecamatan</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :district, nil,  class: 'form-control', placeholder: 'Enter kecamatan' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Kelurahan</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :kelurahan, nil, class: 'form-control', placeholder: 'Enter kelurahan' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Kota</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :city, nil, class: 'form-control', placeholder: 'Enter kota' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Provinsi</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :province, nil, class: 'form-control', placeholder: 'Enter provinsi' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Zip code</label>
+                                        <div class="col-sm-5">
+                                            <%= text_field_tag :zip_code, nil, class: 'form-control', placeholder: 'Enter zip code' %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="col-sm-6 text-left">
+                                        <%= submit_tag "Save", class: 'btn btn-primary btn-sm' %>
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

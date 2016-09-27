@@ -1,0 +1,107 @@
+<%= form_for @hospital, html: { class: 'form-horizontal bordered-row' } do |f| %>
+  <% if @hospital.errors.any? %>
+    <div class="alert alert-close alert-danger">
+      <%= link_to '', '#', title: 'Close', class: 'glyph-icon alert-close-btn icon-remove' %>
+      <div class="bg-red alert-icon">
+        <i class="glyph-icon icon-times"></i>
+      </div>
+      <div class="alert-content">
+        <h4 class="alert-title">Oops! The following errors occured:</h4>
+        <ul>
+          <% @hospital.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :logo, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-2">
+      <label class="btn btn-primary btn-file">
+        Select File
+        <%= f.file_field :logo, class: 'form-control', style: 'display: none;' %>
+      </label>
+    </div>
+    <div class="col-sm-3">
+      <img id="preview_img" height="30">&nbsp;&nbsp;<span id="preview_name"></span>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Enter name' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :polyclinics, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :polyclinics, options_for_select(@polyclinics, @hospital.polyclinics.map { |item| item.name }), {}, { multiple: true, class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :address, class: 'form-control', placeholder: 'Enter address' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address_2, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :address_2, class: 'form-control', placeholder: 'Enter address 2' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :city, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :city, class: 'form-control', placeholder: 'Enter city' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :state, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :state, class: 'form-control', placeholder: 'Enter state' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :zip_code, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :zip_code, class: 'form-control', placeholder: 'Enter zip code' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :country, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= country_select 'hospital', 'country', {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Enter phone number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :fax, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :fax, class: 'form-control', placeholder: 'Enter fax' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.email_field :email, class: 'form-control', placeholder: 'Enter email' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :website, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :website, class: 'form-control', placeholder: 'Enter website' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+<% end %>

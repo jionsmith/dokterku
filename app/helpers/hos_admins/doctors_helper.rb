@@ -1,0 +1,2 @@
+module HosAdmins::DoctorsHelper
+end

@@ -1,0 +1,224 @@
+<div id="page-sidebar">
+  <div class="scroll-sidebar">
+    <ul id="sidebar-menu">
+
+      <!-- user's block start -->
+
+      <li class="header"><span>User</span></li>
+      <li class="no-menu">
+        <%= link_to user_path({id: current_user.id}) do %>
+            <i class="glyph-icon icon-user"></i>
+            <span>Profile dashboard</span>
+        <% end %>
+      </li>
+
+      <!-- user's block end -->
+
+
+
+      <li class="mt-20">
+        <div style="display:inline-block" class="ptb-10">
+          <%= link_to 'Create unit', new_institution_path, class: 'btn btn-border btn-alt border-primary font-primary btn-sm' %>
+        </div>
+      </li>
+      <!-- -institution block start -->
+      <% if current_user.get_hospitals.length > 0 %>
+        <li class="header"><span>Hospitals</span></li>
+        <% current_user.get_hospitals.each do |i|%>
+          <% if i['hospital'].present? %>
+            <li class="header mt-10">
+              <span><%= i['hospital']['name'] %></span>
+              <div class="sidebar-submenu-custome">
+                <ul>
+                  <li>
+                    <%= link_to 'Dashboard', institution_path({id: i['hospital']['institution_id']})%>
+                  </li>
+                  <li>
+                    <%= link_to 'Patient submission', '#'%>
+                  </li>
+                  <li>
+                    <%= link_to 'Active patients', '#'%>
+                  </li>
+                  <li>
+                    <%= link_to 'Departments', '#'%>
+                  </li>
+                  <li>
+                    <%= link_to 'Analitics', '#'%>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <!-- institution block end -->
+      <!-- pharmacy block start -->
+
+      <% if current_user.institutions.where(:inst_type => 'pharmacy').length > 0%>
+        <li class="header"><span>Pharmacies</span></li>
+          <% current_user.institutions.where(:inst_type => 'pharmacy').order(:name => :asc).each do |pharm|%>
+            <li class="header mt-10">
+              <span><%= pharm.name %></span>
+              <div class="sidebar-submenu-custome">
+                <ul>
+                  <li>
+                    <%= link_to 'Dashboard', ''%>
+                  </li>
+                  <li>
+                    <%= link_to 'Add supplier', new_institution_supplier_path({institution_id: pharm.id})%>
+                  </li>
+                  <li>
+                    <%= link_to 'Add medicine', new_institution_drug_path({institution_id: pharm.id})%>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <% end %>
+      <% end %>
+
+      <!-- pharmacy block end -->
+      <!-- laboratory block start -->
+
+      <% if current_user.institutions.where(:inst_type => 'laboratory').length > 0%>
+        <li class="header"><span>Laboratories</span></li>
+        <% current_user.institutions.where(:inst_type => 'laboratory').order(:name => :asc).each do |lab|%>
+          <li class="header mt-10">
+            <span><%= lab.name %></span>
+            <div class="sidebar-submenu-custome">
+              <ul>
+                <li>
+                  <%= link_to 'Dashboard', ''%>
+                </li>
+              </ul>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+      <!-- laboratory block end -->
+
+      <!-- Medical vendor block start -->
+
+      <% if current_user.institutions.where(:inst_type => 'medical vendor').length > 0%>
+          <li class="header"><span>Medical vendors</span></li>
+          <% current_user.institutions.where(:inst_type => 'medical vendor').order(:name => :asc).each do |lab|%>
+              <li class="header mt-10">
+                <span><%= lab.name %></span>
+                <div class="sidebar-submenu-custome">
+                  <ul>
+                    <li>
+                      <%= link_to 'Dashboard', ''%>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+
+      <!-- Medical vendor block end -->
+      <!-- Radiology block start -->
+
+      <% if current_user.institutions.where(:inst_type => 'radiology').length > 0%>
+          <li class="header"><span>Radiologies</span></li>
+          <% current_user.institutions.where(:inst_type => 'radiology').order(:name => :asc).each do |lab|%>
+              <li class="header mt-10">
+                <span><%= lab.name %></span>
+                <div class="sidebar-submenu-custome">
+                  <ul>
+                    <li>
+                      <%= link_to 'Dashboard', ''%>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+
+      <!-- Radiology block end -->
+      <!-- Clinic start -->
+
+      <% if current_user.institutions.where(:inst_type => 'clinic').length > 0%>
+          <li class="header"><span>Clinics</span></li>
+          <% current_user.institutions.where(:inst_type => 'clinic').order(:name => :asc).each do |lab|%>
+              <li class="header mt-10">
+                <span><%= lab.name %></span>
+                <div class="sidebar-submenu-custome">
+                  <ul>
+                    <li>
+                      <%= link_to 'Dashboard', ''%>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+
+      <!-- Clinic block end -->
+      <!-- Midwife block start -->
+
+      <% if current_user.institutions.where(:inst_type => 'midwife').length > 0%>
+          <li class="header"><span>Midwifes</span></li>
+          <% current_user.institutions.where(:inst_type => 'midwife').order(:name => :asc).each do |lab|%>
+              <li class="header mt-10">
+                <span><%= lab.name %></span>
+                <div class="sidebar-submenu-custome">
+                  <ul>
+                    <li>
+                      <%= link_to 'Dashboard', ''%>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+
+      <!-- Midwife block end -->
+      <!-- Dentist block start -->
+
+      <% if current_user.institutions.where(:inst_type => 'dentist').length > 0%>
+          <li class="header"><span>Dentists</span></li>
+          <% current_user.institutions.where(:inst_type => 'dentist').order(:name => :asc).each do |lab|%>
+              <li class="header mt-10">
+                <span><%= lab.name %></span>
+                <div class="sidebar-submenu-custome">
+                  <ul>
+                    <li>
+                      <%= link_to 'Dashboard', ''%>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+
+      <!-- Dentist block end -->
+      <!-- Other block start -->
+
+      <% if current_user.institutions.where(:inst_type => 'other').length > 0%>
+          <li class="header"><span>Other</span></li>
+          <% current_user.institutions.where(:inst_type => 'other').order(:name => :asc).each do |lab|%>
+              <li class="header mt-10">
+                <span><%= lab.name %></span>
+                <div class="sidebar-submenu-custome">
+                  <ul>
+                    <li>
+                      <%= link_to 'Dashboard', ''%>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          <% end %>
+      <% end %>
+
+      <!-- Other block end -->
+
+      <li class="header">
+        <div>
+          <%= link_to users_path do %>
+              <span><strong style="color:black">Users</strong></span>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

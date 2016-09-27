@@ -1,0 +1,81 @@
+<% content_for :title do %>
+    <title>New Hospitals | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+        <% if @hospital.present? && @hospital.admin_mr == current_user.rm_number%>
+            <div id="set_bed" class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2 class="mrg10A">Create Hospital</h2>
+                  <hr>
+                  <ul class="steps-flow p-0 mb-20">
+                    <li class="ptb-10 prl-10 done">1 Hospital profile</li>
+                    <li class="ptb-10 prl-10 done">2 Hospital details</li>
+                    <li class="ptb-10 prl-10 done">3 Hospital room details</li>
+                    <li class="ptb-10 prl-10 done">4 Department selection</li>
+                  </ul>
+                  <hr>
+                </div>
+              </div>
+              <!-- Form start -->
+              <%= form_tag("/hospitals/#{@hospital.id}/departments", id: 'institution-departments') do %>
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs">
+                      <div class="h5 mb-20"><strong>Select Departments</strong></div>
+                    </div>
+                  </div>
+                  <!--<div class="row">-->
+                  <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">-->
+                  <!--<div class="form-group">-->
+                  <!--<div class="col-sm-10 p-0">-->
+                  <!--<div class="">-->
+                  <!--<select multiple="" name="departments[]" id="departments" class=" js-example-basic-multiple js-example-responsive js-example-data-array">-->
+                  <!--<option></option>-->
+                  <!--</select>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <!--</div>-->
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <div class="col-sm-10 p-0">
+                          <div id="wrap-inst-departments">
+                            <select  name="departments1[]" id="multi-select" class="multi-select">
+                              <option></option>
+                              <% @departments.each do |dep|%>
+                                  <option value=<%= dep.name %>><%= dep.name %></option>
+                              <% end %>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-sm-6 text-left">
+                      <%= submit_tag "Finish", class: 'btn ra-100 btn-primary btn-sm' %>
+                    </div>
+                  </div>
+              <% end %>
+              <!-- Form end -->
+            </div>
+        <% else %>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2 class="mrg10A">Access denied</h2>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

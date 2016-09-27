@@ -1,0 +1,2 @@
+module WebAdmins::NursesHelper
+end

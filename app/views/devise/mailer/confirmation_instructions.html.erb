@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+      h2 {
+        font-weight: 200;
+        padding-top: 25px;
+      }
+      h1 {
+        color: #ffffff;
+        padding: 25px 0;
+        font-size: 50px;
+        font-weight: 200;
+      }
+      .row:nth-child(2) p {
+        font-size: 20px;
+      }
+      .row:first-child {
+        background: #5bc0de;
+      }
+      .row:last-child {
+        background: #eeeeee;
+        padding: 20px 0;
+      }
+      .btn-lg {
+        padding: 15px 50px;
+        font-size: 25px;
+        margin: 20px 0;
+      }
+      .container {
+        width: 750px;
+      }
+    </style>
+  </head>
+  <body class="nav-md">
+    <div class="container body text-center">
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>
+            <i class="fa fa-medkit"></i>&nbsp;Dokterku
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Welcome to Dokterku!</h2>
+          <p>You must verify your email in order to access your account. Click on the button below to verify your email.</p>
+          <%= link_to 'Verify Email', confirmation_url(@resource, confirmation_token: @token), class: 'btn btn-lg btn-info' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-muted">
+          <p>You're receiving this email because you signed up for a Dokterku account.</p>
+          <p>If you didn't create an account, then just ignore this email.</p>
+          <p>Copyright © 2016 Dokterku. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

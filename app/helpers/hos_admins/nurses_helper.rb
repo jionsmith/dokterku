@@ -1,0 +1,2 @@
+module HosAdmins::NursesHelper
+end

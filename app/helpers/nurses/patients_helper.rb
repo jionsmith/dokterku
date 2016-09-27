@@ -1,0 +1,2 @@
+module Nurses::PatientsHelper
+end

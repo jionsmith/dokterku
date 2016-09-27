@@ -1,0 +1,112 @@
+<%= form_for @out_patient, html: { class: 'form-horizontal bordered-row' } do |f| %>
+  <% if @out_patient.errors.any? %>
+    <div class="alert alert-close alert-danger">
+      <%= link_to '', '#', title: 'Close', class: 'glyph-icon alert-close-btn icon-remove' %>
+      <div class="bg-red alert-icon">
+        <i class="glyph-icon icon-times"></i>
+      </div>
+      <div class="alert-content">
+        <h4 class="alert-title">Oops! The following errors occured:</h4>
+        <ul>
+          <% @out_patient.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: 'form-control', placeholder: 'Enter name' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :visit, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :visit, options_for_select(['Walk In', 'By Phone', 'By Appointment', 'Referral'], @out_patient.visit), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :gender, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :gender, options_for_select(['Male', 'Female'], @out_patient.gender), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :date_of_birth, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :date_of_birth, class: 'form-control', placeholder: 'Enter date of birth' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :age, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :age, class: 'form-control', placeholder: 'Enter age' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :reason_for_visit, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :reason_for_visit, class: 'form-control', placeholder: 'Enter reason for visit' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :patient_id, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :patient_id, options_from_collection_for_select(@patients, 'id', 'full_name', @out_patient.patient_id), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :polyclinic_id, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :polyclinic_id, options_from_collection_for_select(@polyclinics, 'id', 'name', @out_patient.polyclinic_id), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+    <script>
+    var out_doc_update = function() {
+      $.post('/out_patients/doctors.json', { polyclinic_id: $('#out_patient_polyclinic_id').val() }).done(function (data) {
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+          var options = '<option value="' + data[i].id +'">' + data[i].full_name + '</option>';
+          html += options;
+        }
+        console.log(html);
+        $('#out_patient_doctor_id').html(html);
+      });
+    }
+    $('#out_patient_polyclinic_id').change(function(){
+      out_doc_update();
+    });
+    </script>
+    <% if @out_patient.new_record? %>
+    <script>
+    $(document).ready(function(){
+      out_doc_update();
+    });
+    </script>
+    <% doctors = {} %>
+    <% elsif !@out_patient.new_record?
+      doctors = []
+      Hospital.find(current_user.reg_admin.hospital_id).polyclinics.find(@out_patient.polyclinic_id).doctors.each do |doctor|
+        doctors << [doctor.full_name, doctor.id]
+      end
+    end %>
+  <div class="form-group">
+    <%= f.label :doctor_id, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :doctor_id, options_for_select(doctors, selected: @out_patient.doctor_id), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :specialist, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :specialist, class: 'form-control', placeholder: 'Enter specialist' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+<% end %>

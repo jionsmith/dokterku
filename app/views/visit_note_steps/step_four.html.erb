@@ -1,0 +1,83 @@
+<% content_for :title do %>
+    <title>New Visit Note | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+        <% if current_user.admin_mr?(@institution.id) && @institution.verification_number.present?%>
+            <div id="verify-inst-user" class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <ul class="steps-flow p-0 mb-20">
+                    <li class="ptb-10 prl-30 done">Step 1</li>
+                    <li class="ptb-10 prl-30 done">Step 2</li>
+                    <li class="ptb-10 prl-30 done">Step 3</li>
+                    <li class="ptb-10 prl-30 done">Step 4</li>
+                  </ul>
+                  <hr>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2>Visit note</h2>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-40">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                <%= form_tag("/institutions/#{@institution.id}/visit_notes/#{@note.id}/set_action") do%>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Tindakan terapetik</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" name="therapeutic_action" placeholder="Enter tindakan terapetik"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-20">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Tindakan diagnostik</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" name="diagnosis_action" placeholder="Enter tindakan diagnostik"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-20">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                          <label class="col-sm-2 control-label">Tindakan medis</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" name="medical_actions" placeholder="Enter tindakan medis"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-20">
+                      <div class="col-sm-6 pr-20">
+                        <%= submit_tag "Next", class: 'btn ra-100 btn-primary btn-sm' %>
+                      </div>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+        <% else %>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2 class="mrg10A">Access denied</h2>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

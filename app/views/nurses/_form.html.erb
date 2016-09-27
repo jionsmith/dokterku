@@ -1,0 +1,61 @@
+<%= form_for @nurse, url: user_nurse_path(@nurse.user_id), html: { class: 'form-horizontal bordered-row' } do |f| %>
+  <% if @nurse.errors.any? %>
+    <div class="alert alert-close alert-danger">
+      <%= link_to '', '#', title: 'Close', class: 'glyph-icon alert-close-btn icon-remove' %>
+      <div class="bg-red alert-icon">
+        <i class="glyph-icon icon-times"></i>
+      </div>
+      <div class="alert-content">
+        <h4 class="alert-title">Oops! The following errors occured:</h4>
+        <ul>
+          <% @nurse.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <% if is_web_admin? %>
+    <div class="form-group">
+      <%= f.label :hospital_id, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.select :hospital_id, options_from_collection_for_select(@hospitals, 'id', 'name', @nurse.hospital_id), {}, { class: 'form-control' } %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Enter phone number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :blood_type, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :blood_type, class: 'form-control', placeholder: 'Enter blood type' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :height, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <div class="input-group">
+        <%= f.number_field :height, class: 'form-control', placeholder: 'Enter height', area: { describedby: 'height_addon' } %>
+        <span class="input-group-addon" id="height_addon">kg</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :weight, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <div class="input-group">
+        <%= f.number_field :weight, class: 'form-control', placeholder: 'Enter weight', area: { describedby: 'weight_addon' } %>
+        <span class="input-group-addon" id="weight_addon">kg</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+<% end %>

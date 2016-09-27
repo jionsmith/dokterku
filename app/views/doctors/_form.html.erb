@@ -1,0 +1,113 @@
+<%= form_for @doctor, url: user_doctor_path(@doctor.user_id), html: { class: 'form-horizontal bordered-row' } do |f| %>
+  <% if @doctor.errors.any? %>
+    <div class="alert alert-close alert-danger">
+      <%= link_to '', '#', title: 'Close', class: 'glyph-icon alert-close-btn icon-remove' %>
+      <div class="bg-red alert-icon">
+        <i class="glyph-icon icon-times"></i>
+      </div>
+      <div class="alert-content">
+        <h4 class="alert-title">Oops! The following errors occured:</h4>
+        <ul>
+          <% @doctor.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <% if is_web_admin? %>
+    <div class="form-group">
+      <%= f.label :hospital_id, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.select :hospital_id, options_from_collection_for_select(@hospitals, 'id', 'name', @doctor.hospital_id), {}, { class: 'form-control' } %>
+      </div>
+    </div>
+    <script>
+    var doc_poly_update = function() {
+      $.post('/doctors/polyclinics.json', { hospital_id: $('#doctor_hospital_id').val() }).done(function (data) {
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+          options = '<option value="' + data[i].id +'">' + data[i].name + '</option>';
+          html += options;
+        }
+        $('#doctor_polyclinics').html(html);
+      });
+    }
+    $('#doctor_hospital_id').change(function(){
+      doc_poly_update();
+    });
+    </script>
+    <% if @doctor.new_record? %>
+    <% polyclinics = [Polyclinic.new] %>
+    <script>
+    $(document).ready(function(){
+      doc_poly_update();
+    });
+    </script>
+    <% end %>
+  <% end %>
+  <% if !@doctor.new_record?
+    polyclinics = Hospital.find(@doctor.hospital_id).polyclinics
+  end
+  %>
+  <% polyclinics = Hospital.find(current_user.hospital_id).polyclinics if is_hos_admin? %>
+  <div class="form-group">
+    <%= f.label :polyclinics, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :polyclinics, options_from_collection_for_select(polyclinics, 'id', 'name', @doctor.polyclinics.map { |item| item.id }), {}, { class: 'form-control', multiple: true } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :speciality, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :speciality, '', {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hours_from, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :hours_from, class: 'form-control', placeholder: 'Enter working hour from' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :hours_to, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :hours_to, class: 'form-control', placeholder: 'Enter working hour to' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Enter phone number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :blood_type, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :blood_type, class: 'form-control', placeholder: 'Enter blood type' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :height, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <div class="input-group">
+        <%= f.number_field :height, class: 'form-control', placeholder: 'Enter height', area: { describedby: 'height_addon' } %>
+        <span class="input-group-addon" id="height_addon">cm</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :weight, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <div class="input-group">
+        <%= f.number_field :weight, class: 'form-control', placeholder: 'Enter weight', area: { describedby: 'weight_addon' } %>
+        <span class="input-group-addon" id="weight_addon">kg</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+<% end %>

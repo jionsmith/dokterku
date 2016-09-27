@@ -1,0 +1,16 @@
+// Place all the styles related to the institutions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.checker{
+  .checkbox label{
+    font-weight: bold;
+  }
+  .icon-check{
+    display: block;
+    color: white;
+    position: absolute;
+    left: 4px;
+  }
+}
+

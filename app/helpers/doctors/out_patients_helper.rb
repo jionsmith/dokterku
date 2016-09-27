@@ -1,0 +1,2 @@
+module Doctors::OutPatientsHelper
+end

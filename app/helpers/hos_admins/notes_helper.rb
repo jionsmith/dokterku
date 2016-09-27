@@ -1,0 +1,2 @@
+module HosAdmins::NotesHelper
+end

@@ -1,0 +1,79 @@
+<div class="container mt-20">
+  <% if @user.present? %>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h2 class="mrg10A">Create Your Profile</h2>
+        <hr>
+        <ul class="steps-flow p-0 mb-20">
+          <li class="ptb-10 prl-10 done">1 About</li>
+          <li id="tab-step2" class="ptb-10 prl-10 done">2 Profile picture</li>
+          <li id="tab-step3" class="ptb-10 prl-10 done">3 More details</li>
+          <li id="tab-step4" class="ptb-10 prl-10 done">4 Medical histories</li>
+          <li id="tab-step5" class="ptb-10 prl-10">5 Family members</li>
+        </ul>
+        <hr>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">1 About</a></li>
+          <li class="breadcrumb-item" id="tab-link2"><a href="#">2 Profile picture</a></li>
+          <li class="breadcrumb-item" id="tab-link3"><a href="#">3 More details</a></li>
+          <li class="breadcrumb-item" id="tab-link4"><a href="#" class="active">4 Medical histories</a></li>
+        </ol>
+      </div>
+    </div>
+    <!-- Start step 4 -->
+    <div id="step4" class="row mt-20">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+        <form name="step4" class="form-horizontal bordered-row mb-40">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Substance</label>
+                <div class="col-sm-10">
+                  <textarea name="substance"
+                    id="substance"
+                    rows="3"
+                    class="form-control textarea-autosize"
+                    style="overflow: hidden;
+                        word-wrap: break-word;
+                        resize: horizontal;">
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Reaction</label>
+                <div class="col-sm-10">
+                  <textarea name="reaction"
+                    rows="3"
+                    id="reaction"
+                    class="form-control textarea-autosize"
+                    style="overflow: hidden;
+                        word-wrap: break-word;
+                        resize: horizontal;">
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+              <%= link_to 'Skip', set_relatives_path({id: @user.id}), class: 'btn btn-default', id: 'skip-med-history'%>
+              <button class="btn btn-azure" id="save-user-allergies">Save</button>
+              <%= link_to 'Next', set_relatives_path({id: @user.id}), class: 'btn btn-info', style: 'display: none', id: 'go-set-rel'%>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End step 4-->
+  <% else %>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2 class="mrg10A">User not found</h2>
+        </div>
+      </div>
+  <% end %>
+</div>

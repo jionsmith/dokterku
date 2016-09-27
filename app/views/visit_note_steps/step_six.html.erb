@@ -1,0 +1,111 @@
+<% content_for :title do %>
+    <title>New Visit Note | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+        <div id="verify-inst-user" class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <ul class="steps-flow p-0 mb-20">
+                <li class="ptb-10 prl-30 done">Step 1</li>
+                <li class="ptb-10 prl-30 done">Step 2</li>
+                <li class="ptb-10 prl-30 done">Step 3</li>
+                <li class="ptb-10 prl-30 done">Step 4</li>
+                <li class="ptb-10 prl-30 done">Step 5</li>
+                <li class="ptb-10 prl-30 done">Step 6</li>
+              </ul>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+              <h2>Visit note</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-40">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+            <%= form_tag("/institutions/#{@institution.id}/visit_notes/#{@note.id}/set_medical_treatment") do%>
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Name of medicine</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="name" placeholder="Enter name of medicine">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Type of medicine</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="type_of_drugs" placeholder="Enter type of medicine">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Dosage</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="dosage" placeholder="Enter dosage">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Qty</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="qty" placeholder="Enter qty">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Date started</label>
+                  <div class="col-sm-5">
+                    <div class="input-prepend input-group">
+                        <span class="add-on input-group-addon">
+                            <i class="glyph-icon icon-calendar"></i>
+                        </span>
+                      <input type="text" name="start_date"  class="bootstrap-datepicker form-control calendar" value="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Date started</label>
+                  <div class="col-sm-5">
+                    <div class="input-prepend input-group">
+                        <span class="add-on input-group-addon">
+                            <i class="glyph-icon icon-calendar"></i>
+                        </span>
+                      <input type="text" name="end_date" class="bootstrap-datepicker form-control calendar" value="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-20">
+                <div class="col-sm-6 pr-20">
+                  <%= submit_tag "Finish & review", class: 'btn ra-100 btn-primary btn-sm' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

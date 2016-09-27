@@ -1,0 +1,36 @@
+// Place all the styles related to the web_admins/hospitals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.alert {
+  margin-bottom: 0;
+}
+.devise-alert {
+  position: absolute;
+  margin-top: 30px;
+  width: 35%;
+  left: 32.5%;
+  z-index: 9999;
+}
+.hospital-title {
+  display: inline;
+  vertical-align: middle;
+}
+.dataTables_wrapper .dataTables_info {
+  color: #9a9b9c;
+}
+table.dataTable thead th, table.dataTable.no-footer {
+  border-bottom: none;
+}
+@media screen and (max-width: 640px) {
+  .dataTables_wrapper .dataTables_length {
+    padding-top: 15px;
+  }
+  .devise-alert {
+    width: 75%;
+    left: 12.5%;
+  }
+}
+#page-header .user-account-btn > a.user-profile span {
+  width: 250px;
+}

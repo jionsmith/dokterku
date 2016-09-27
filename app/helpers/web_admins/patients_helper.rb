@@ -1,0 +1,2 @@
+module WebAdmins::PatientsHelper
+end

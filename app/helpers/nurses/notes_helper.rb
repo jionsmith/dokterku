@@ -1,0 +1,2 @@
+module Nurses::NotesHelper
+end

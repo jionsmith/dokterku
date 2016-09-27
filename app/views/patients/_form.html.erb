@@ -1,0 +1,319 @@
+<%= form_for @patient, url: user_patient_path(@patient.user_id), html: { class: 'form-horizontal bordered-row patients_form' } do |f| %>
+  <% if @patient.errors.any? %>
+    <div class="alert alert-close alert-danger">
+      <%= link_to '', '#', title: 'Close', class: 'glyph-icon alert-close-btn icon-remove' %>
+      <div class="bg-red alert-icon">
+        <i class="glyph-icon icon-times"></i>
+      </div>
+      <div class="alert-content">
+        <h4 class="alert-title">Oops! The following errors occured:</h4>
+        <ul>
+          <% @patient.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :place_of_birth, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :place_of_birth, class: 'form-control', placeholder: 'Enter place of birth' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :kelurahan, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :kelurahan, class: 'form-control', placeholder: 'Enter kelurahan' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :kecamatan, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :kecamatan, class: 'form-control', placeholder: 'Enter kecamatan' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :rt_rw, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :rt_rw, class: 'form-control', placeholder: 'Enter RT/RW' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :provinsi, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :provinsi, class: 'form-control', placeholder: 'Enter provinsi' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_education, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :last_education, class: 'form-control', placeholder: 'Enter last education' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :religion, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :religion, options_for_select(['Christian', 'Muslim', 'Buddha', 'Catholic', 'Hindu', 'Other'], selected: @patient.religion), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :nationality, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :nationality, class: 'form-control', placeholder: 'Enter nationality' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :blood_type, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :blood_type, class: 'form-control', placeholder: 'Enter blood type' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :marital_status, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :marital_status, options_for_select(['Married', 'Unmarried', 'Divorced', 'Widowed'], selected: @patient.marital_status), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :id_type, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :id_type, options_for_select(['Government ID', 'Driver\'s License', 'Passport'], selected: @patient.id_type), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :id_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :id_number, class: 'form-control', placeholder: 'Enter ID number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Enter phone number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mobile_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :mobile_number, class: 'form-control', placeholder: 'Enter mobile number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :patient_occupation, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :patient_occupation, class: 'form-control', placeholder: 'Enter patient occupation' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :name_of_company, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :name_of_company, class: 'form-control', placeholder: 'Enter name of company' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :company_address, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :company_address, class: 'form-control', placeholder: 'Enter company address' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :company_phone, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :company_phone, class: 'form-control', placeholder: 'Enter company phone' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :father_name, class: 'form-control', placeholder: 'Enter father name' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_id_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :father_id_number, class: 'form-control', placeholder: 'Enter father id number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_address, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :father_address, class: 'form-control', placeholder: 'Enter father_address' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :father_phone_number, class: 'form-control', placeholder: 'Enter father_phone_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_mobile_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :father_mobile_number, class: 'form-control', placeholder: 'Enter father_mobile_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :father_email, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :father_email, class: 'form-control', placeholder: 'Enter father_email' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mother_name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :mother_name, class: 'form-control', placeholder: 'Enter mother_name' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mother_id_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :mother_id_number, class: 'form-control', placeholder: 'Enter mother_id_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mother_address, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :mother_address, class: 'form-control', placeholder: 'Enter mother_address' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mother_phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :mother_phone_number, class: 'form-control', placeholder: 'Enter mother_phone_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mother_mobile_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :mother_mobile_number, class: 'form-control', placeholder: 'Enter mother_mobile_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :mother_email, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :mother_email, class: 'form-control', placeholder: 'Enter mother_email' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :spouse_name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :spouse_name, class: 'form-control', placeholder: 'Enter spouse_name' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :spouse_id_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :spouse_id_number, class: 'form-control', placeholder: 'Enter spouse_id_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :spouse_address, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :spouse_address, class: 'form-control', placeholder: 'Enter spouse_address' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :spouse_phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :spouse_phone_number, class: 'form-control', placeholder: 'Enter spouse_phone_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :spouse_mobile_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :spouse_mobile_number, class: 'form-control', placeholder: 'Enter spouse_mobile_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :spouse_email, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :spouse_email, class: 'form-control', placeholder: 'Enter spouse_email' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :emergency_contact_name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :emergency_contact_name, class: 'form-control', placeholder: 'Enter emergency_contact_name' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :relationship_to_patient, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :relationship_to_patient, class: 'form-control', placeholder: 'Enter relationship_to_patient' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :emergency_contact_address, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :emergency_contact_address, class: 'form-control', placeholder: 'Enter emergency_contact_address' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :emergency_contact_phone_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :emergency_contact_phone_number, class: 'form-control', placeholder: 'Enter emergency_contact_phone_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :emergency_contact_mobile_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :emergency_contact_mobile_number, class: 'form-control', placeholder: 'Enter emergency_contact_mobile_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :emergency_contact_email, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :emergency_contact_email, class: 'form-control', placeholder: 'Enter emergency_contact_email' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :method_of_payment, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :method_of_payment, options_for_select(['Cash', 'Credit Card', 'BPJS', 'Medical Insurance'], selected: @patient.method_of_payment), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :credit_card_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :credit_card_number, class: 'form-control', placeholder: 'Enter credit_card_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :bpjs_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :bpjs_number, class: 'form-control', placeholder: 'Enter bpjs_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :insurance_company, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :insurance_company, class: 'form-control', placeholder: 'Enter insurance_company' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :insurance_id_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :insurance_id_number, class: 'form-control', placeholder: 'Enter insurance_id_number' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :insurance_policy_number, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :insurance_policy_number, class: 'form-control', placeholder: 'Enter insurance_policy_number' %>
+    </div>
+  </div>
+  <% if is_web_admin? %>
+  <div class="form-group">
+    <%= f.label :hospital_id, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :hospital_id, options_from_collection_for_select(@hospitals, 'id', 'name', @patient.hospital_id), {}, { class: 'form-control' } %>
+    </div>
+  </div>
+  <% end %>
+  <div class="form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <%= f.submit 'Save', class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+<% end %>

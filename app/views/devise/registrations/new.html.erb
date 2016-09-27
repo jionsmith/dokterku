@@ -1,0 +1,215 @@
+<% content_for :title do %>
+  <title>New User Signup | Dokterku</title>
+<% end %>
+
+<style>
+  html,body {
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+  }
+</style>
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h2 class="mrg10A">Create Account</h2>
+      <hr>
+      <ul class="steps-flow p-0 mb-20">
+        <li class="ptb-10 prl-10 done">1 About</li>
+      </ul>
+      <hr>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#" class="active">1 About</a></li>
+      </ol>
+    </div>
+  </div>
+    <div class="row">
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="col-lg-5 col-md-5 col-sm-10 col-sx-12">
+              <div class="content-box-wrapper">
+                <div class="row">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                      <%= f.email_field :email, class: 'form-control', placeholder: 'Enter email', autofocus: true %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                      <%= f.password_field :password, class: 'form-control', placeholder: 'Password', autocomplete: 'off' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Retype password</label>
+                    <div class="col-sm-9">
+                      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Retype password', autocomplete: 'off' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">First name</label>
+                    <div class="col-sm-9">
+                      <%= f.text_field :first_name, class: 'form-control', placeholder: 'Enter first name' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Last name</label>
+                    <div class="col-sm-9">
+                      <%= f.text_field :last_name, class: 'form-control', placeholder: 'Enter last name' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Middle name</label>
+                    <div class="col-sm-9">
+                      <%= f.text_field :middle_name, class: 'form-control', placeholder: 'Enter middle name' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">ID type</label>
+                    <div class="col-sm-9">
+                      <%= f.text_field :id_type, class: 'form-control', placeholder: 'Enter ID type' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">ID number</label>
+                    <div class="col-sm-9">
+                      <%= f.text_field :rm_number, class: 'form-control', placeholder: 'Enter ID number' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Home phone</label>
+                    <div class="col-sm-9">
+                      <%= f.text_field :home_phone, class: 'form-control', placeholder: 'Enter home phone' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Mobile phone</label>
+                    <div class="col-sm-9">
+                      <%= f.text_field :home_phone, class: 'form-control', placeholder: 'Enter mobile phone' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Date of birth</label>
+                    <div class="col-sm-9">
+                      <div class="input-group">
+                        <%= f.text_field :date_of_birth, class: 'form-control', placeholder: 'Enter date of birth' %>
+                        <span class="input-group-addon bg-blue">
+                            <i class="glyph-icon icon-sort-alpha-desc"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Gender</label>
+                    <div class="col-sm-9">
+                      <%= f.select :gender, ['Male', 'Female'], { include_blank: 'Gender' }, { class: 'form-control' } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-20">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Blood type</label>
+                    <div class="col-sm-9">
+                      <%= f.select :blood_type, ['O-', 'O+', 'A-', 'A+', 'B-', 'B+', 'AB-', 'AB+'], { include_blank: 'Blood type' }, { class: 'form-control' } %>
+                    </div>
+                  </div>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= f.select :salutation, ['Mr.', 'Mrs.', 'Ms.', 'Dr.'], { include_blank: 'Salutation' }, { class: 'form-control' } %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= f.select :gender, ['Male', 'Female'], { include_blank: 'Gender' }, { class: 'form-control' } %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= f.text_field :address_1, class: 'form-control', placeholder: 'Enter address 1' %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= f.text_field :address_2, class: 'form-control', placeholder: 'Enter address 2' %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= f.text_field :city, class: 'form-control', placeholder: 'Enter city' %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= f.text_field :state, class: 'form-control', placeholder: 'Enter state' %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= f.text_field :zip, class: 'form-control', placeholder: 'Enter zip' %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<div class="input-group">-->
+                        <!--<%= country_select 'user', 'country', {}, { class: 'form-control' } %>-->
+                        <!--<span class="input-group-addon bg-blue">-->
+                            <!--<i class="glyph-icon icon-sort-alpha-desc"></i>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+                  <br>
+                  <%= f.submit 'Sign Up', class: 'btn btn-success btn-block' %>
+                  <br>
+              </div>
+          </div>
+      <% end %>
+
+    </div>
+</div>

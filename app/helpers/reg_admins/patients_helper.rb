@@ -1,0 +1,2 @@
+module RegAdmins::PatientsHelper
+end

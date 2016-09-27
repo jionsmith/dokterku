@@ -1,0 +1,83 @@
+<% content_for :title do %>
+<title>New Hospitals | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+    <div id="page-wrapper">
+        <%= render 'partials/header' %>
+        <%= render 'partials/user_sidebar' %>
+        <div id="page-content-wrapper">
+            <div id="page-content">
+                <div id="verify-inst-user" class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                            <h2 class="mrg10A">Create Unit</h2>
+                            <hr>
+                            <p class="ml-10 h5 mt-20">To choose type of organization</p>
+                        </div>
+                    </div>
+                    <div class="row ml-10 mt-30 text-center">
+                        <button id="create-hospital" class="btn vertical-button hover-green hospital-type col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-hospital-o"></i>
+                            </span>
+                            <span class="button-content">Hospitals</span>
+                        </button>
+                        <button id="create-pharmacy" class="btn vertical-button hover-green hospital-type ml-10 col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-eyedropper"></i>
+                            </span>
+                            <span class="button-content">Pharmacy</span>
+                        </button>
+                        <button id="create-lab" class="btn vertical-button hover-green hospital-type ml-10 col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-flask"></i>
+                            </span>
+                            <span class="button-content">Laboratory</span>
+                        </button>
+                    </div>
+                    <div class="row ml-10 mt-20 text-center">
+                        <button id="create-med-vendor" class="btn vertical-button hover-green hospital-type col-lg-3">
+                             <span class="glyph-icon icon-separator-vertical">
+                               <i class="glyph-icon icon-user"></i>
+                             </span>
+                            <span class="button-content">Medical vendor</span>
+                        </button>
+                        <button id="create-radiology" class="btn vertical-button hover-green hospital-type ml-10 col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-flash"></i>
+                            </span>
+                            <span class="button-content">Radiology</span>
+                        </button>
+                        <button id="create-clinic" class="btn vertical-button hover-green hospital-type ml-10 col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-user-md"></i>
+                            </span>
+                            <span class="button-content">Clinic</span>
+                        </button>
+                    </div>
+                    <div class="row ml-10 mt-20 text-center">
+                        <button id="create-midwife" class="btn vertical-button hover-green hospital-type col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-reddit"></i>
+                            </span>
+                            <span class="button-content">Midwife</span>
+                        </button>
+                        <button id="create-dentist" class="btn vertical-button hover-green hospital-type ml-10 col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-smile-o"></i>
+                            </span>
+                            <span class="button-content">Dentist</span>
+                        </button>
+                        <button id="create-other" class="btn vertical-button hover-green hospital-type ml-10 col-lg-3">
+                            <span class="glyph-icon icon-separator-vertical">
+                              <i class="glyph-icon icon-medkit"></i>
+                            </span>
+                            <span class="button-content">Other</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

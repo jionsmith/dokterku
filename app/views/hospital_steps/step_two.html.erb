@@ -1,0 +1,261 @@
+<% content_for :title do %>
+    <title>New Hospitals | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+    <%= render 'partials/header' %>
+    <%= render 'partials/user_sidebar' %>
+    <div id="page-content-wrapper">
+      <div id="page-content">
+        <% if @hospital.present? && @hospital.admin_mr == current_user.rm_number%>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2 class="mrg10A">Create Hospital</h2>
+                  <hr>
+                  <ul class="steps-flow p-0 mb-20">
+                    <li class="ptb-10 prl-10 done">1 Hospital profile</li>
+                    <li class="ptb-10 prl-10 done">2 Hospital details</li>
+                  </ul>
+                  <hr>
+                </div>
+              </div>
+              <%= form_tag("/hospitals/#{@hospital.id}/inst_details", method: 'PUT', id: "institution-details") do %>
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="form-group">
+                        <label class="col-sm-1 control-label">Address</label>
+                        <div class="col-sm-11">
+                          <input type="text" class="form-control" name="address" placeholder="Enter address">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Country</label>
+                        <div class="col-sm-10">
+                          <div class="selector">
+                            <%= country_select 'country', 'data', {include_blank: true}, {class: 'custom-select pl-10'} %>
+                          </div>
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Kecamatan</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="district" placeholder="Enter kecamatan">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label text-uppercase">rt/rw</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="rt_rw" placeholder="Enter RT/RW">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Kabupaten</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="regency" placeholder="Enter kabupaten">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Kelurahan</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="kelurahan" placeholder="Enter kelurahan">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Kota</label>
+                        <div class="col-sm-10">
+                          <div class="selector">
+                            <select name="city" class="custom-select pl-10">
+                              <option></option>
+                              <option value="Option 1">Option 1</option>
+                              <option value="Option 2">Option 2</option>
+                              <option value="Option 3">Option 3</option>
+                              <option value="Option 4">Option 4</option>
+                            </select>
+                          </div>
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Provinsi</label>
+                        <div class="col-sm-10">
+                          <div class="selector">
+                            <select name="province" class="custom-select pl-10">
+                              <option></option>
+                              <option value="Option 1">Option 1</option>
+                              <option value="Option 2">Option 2</option>
+                              <option value="Option 3">Option 3</option>
+                              <option value="Option 4">Option 4</option>
+                            </select>
+                          </div>
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Zip code</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" name="zip" placeholder="Enter zip code">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-sx-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Luas Tanah</label>
+                        <div class="col-sm-9">
+                          <div class="input-group">
+                            <input type="number" class="form-control" name="land_area">
+                            <span class="input-group-addon input-group-addon-right">.00</span>
+                          </div>
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-sx-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Luas Bangunan</label>
+                        <div class="col-sm-9">
+                          <div class="input-group">
+                            <input type="number" class="form-control" name="building_area">
+                            <span class="input-group-addon input-group-addon-right">.00</span>
+                          </div>
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="form-group">
+                        <label class="col-sm-2 control-label">Google maps link</label>
+                        <div class="col-sm-10 p-0 ml--30">
+                          <input type="text" class="form-control without-valid" name="maps_link" placeholder="Enter address">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Telepon/Fax/Email</label>
+                        <div class="col-sm-9 pl-15">
+                          <input type="text" class="form-control" name="contacts" placeholder="Enter contact">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Fax</label>
+                        <div class="col-sm-9 pl-15">
+                          <input type="text" class="form-control" name="fax" placeholder="Enter fax">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9 pl-15">
+                          <input type="text" class="form-control" name="email" placeholder="Enter email">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Phone number</label>
+                        <div class="col-sm-9 pl-15">
+                          <input type="text" class="form-control" name="phone" placeholder="Enter phone number">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">Website</label>
+                        <div class="col-sm-9 pl-15">
+                          <input type="text" class="form-control without-valid" name="website" placeholder="Enter website">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">ICU No telp</label>
+                        <div class="col-sm-9 pl-15">
+                          <input type="text" class="form-control" name="icu_no_telp" placeholder="Enter isu no telp">
+                          <span class="red error-text">This value is required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-20">
+                    <div class="col-sm-6 text-left">
+                      <%= submit_tag "Save info", class: 'btn ra-100 btn-primary btn-sm' %>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+        <% else %>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                  <h2 class="mrg10A">Access denied</h2>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

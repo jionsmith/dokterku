@@ -1,0 +1,2 @@
+module HosAdmins::RegAdminsHelper
+end

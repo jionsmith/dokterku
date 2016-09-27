@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ * Boostrap
+ *= require bootstrap/css/bootstrap
+ *= require bootstrap-datetimepicker
+ *= require dataTables/jquery.dataTables
+ * Helpers
+ *= require helpers/animate
+ *= require helpers/backgrounds
+ *= require helpers/boilerplate
+ *= require helpers/border-radius
+ *= require helpers/grid
+ *= require helpers/page-transitions
+ *= require helpers/spacing
+ *= require helpers/typography
+ *= require helpers/utils
+ *= require helpers/colors
+ * Elements
+ *= require elements/badges
+ *= require elements/buttons
+ *= require elements/content-box
+ *= require elements/dashboard-box
+ *= require elements/forms
+ *= require elements/images
+ *= require elements/info-box
+ *= require elements/invoice
+ *= require elements/loading-indicators
+ *= require elements/menus
+ *= require elements/panel-box
+ *= require elements/response-messages
+ *= require elements/responsive-tables
+ *= require elements/ribbon
+ *= require elements/social-box
+ *= require elements/tables
+ *= require elements/tile-box
+ *= require elements/timeline
+ * Icons
+ *= require icons/fontawesome/fontawesome
+ *= require icons/linecons/linecons
+ *= require icons/spinnericon/spinnericon
+ * Widgets
+ *= require widgets/accordion-ui/accordion
+ *= require widgets/calendar/calendar
+ *= require widgets/carousel/carousel
+ *= require widgets/charts/justgage/justgage
+ *= require widgets/charts/morris/morris
+ *= require widgets/charts/piegage/piegage
+ *= require widgets/charts/xcharts/xcharts
+ *= require widgets/chosen/chosen
+ *= require widgets/colorpicker/colorpicker
+ *= require widgets/datatable/datatable
+ *= require widgets/datepicker/datepicker
+ *= require widgets/datepicker-ui/datepicker
+ *= require widgets/daterangepicker/daterangepicker
+ *= require widgets/dialog/dialog
+ *= require widgets/dropdown/dropdown
+ *= require widgets/dropzone/dropzone
+ *= require widgets/file-input/fileinput
+ *= require widgets/input-switch/inputswitch
+ *= require widgets/input-switch/inputswitch-alt
+ *= require widgets/ionrangeslider/ionrangeslider
+ *= require widgets/jcrop/jcrop
+ *= require widgets/jgrowl-notifications/jgrowl
+ *= require widgets/loading-bar/loadingbar
+ *= require widgets/markdown/markdown
+ *= require widgets/modal/modal
+ *= require widgets/multi-select/multiselect
+ *= require widgets/multi-upload/fileupload
+ *= require widgets/nestable/nestable
+ *= require widgets/noty-notifications/noty
+ *= require widgets/popover/popover
+ *= require widgets/progressbar/progressbar
+ *= require widgets/range-slider/rangeslider
+ *= require widgets/slidebars/slidebars
+ *= require widgets/slider-ui/slider
+ *= require widgets/summernote-wysiwyg/summernote-wysiwyg
+ *= require widgets/tabs-ui/tabs
+ *= require widgets/theme-switcher/themeswitcher
+ *= require widgets/timepicker/timepicker
+ *= require widgets/tocify/tocify
+ *= require widgets/tooltip/tooltip
+ *= require widgets/touchspin/touchspin
+ *= require widgets/uniform/uniform
+ *= require widgets/wizard/wizard
+ *= require widgets/multi-select/multiselect
+ * Snippets
+ *= require snippets/chat
+ *= require snippets/files-box
+ *= require snippets/login-box
+ *= require snippets/notification-box
+ *= require snippets/progress-box
+ *= require snippets/todo
+ *= require snippets/user-profile
+ *= require snippets/mobile-navigation
+ * Applications
+ *= require applications/mailbox
+ * Admin theme
+ *= require themes/admin/layout
+ *= require themes/admin/color-schemes/default
+ * Components theme
+ *= require themes/components/default
+ *= require themes/components/border-radius
+ * Admin responsive
+ *= require helpers/responsive-elements
+ *= require helpers/admin-responsive
+
+ *= require select2.min
+ *= require_tree .
+ *= require_self
+ */
+
+

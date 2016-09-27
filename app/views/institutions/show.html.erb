@@ -1,0 +1,150 @@
+<% content_for :title do %>
+  <title>Institution Details | Dashboard | Dokterku</title>
+<% end %>
+
+<div id="sb-site">
+  <div id="page-wrapper">
+      <%= render 'partials/header' %>
+      <%= render 'partials/user_sidebar' %>
+          <div id="page-content-wrapper">
+              <div id="page-content">
+                  <div class="container">
+                  <% if @institution.verification_number.present? && @institution.admin_mr == current_user.rm_number%>
+                        <div id="page-title">
+                            <h2>Institution Details&nbsp;&nbsp;<%= link_to 'Edit', edit_institution_path(@institution), class: 'btn btn-primary' %>&nbsp;&nbsp;<%= link_to 'Delete', institution_path(@institution), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %></h2>
+                            <p>See all information about this institution.</p>
+                            <div id="theme-options" class="admin-options">
+                                <a href="javascript:void(0);" class="btn btn-primary theme-switcher tooltip-button" data-placement="left" title="Color schemes and layout options">
+                                    <i class="glyph-icon icon-linecons-cog icon-spin"></i>
+                                </a>
+                                <div id="theme-switcher-wrapper">
+                                    <div class="scroll-switcher">
+                                        <h5 class="header">Layout options</h5>
+                                        <ul class="reset-ul">
+                                            <li>
+                                                <label for="boxed-layout">Boxed layout</label>
+                                                <input type="checkbox" data-toggletarget="boxed-layout" id="boxed-layout" class="input-switch-alt">
+                                            </li>
+                                            <li>
+                                                <label for="fixed-header">Fixed header</label>
+                                                <input type="checkbox" data-toggletarget="fixed-header" id="fixed-header" class="input-switch-alt">
+                                            </li>
+                                            <li>
+                                                <label for="fixed-sidebar">Fixed sidebar</label>
+                                                <input type="checkbox" data-toggletarget="fixed-sidebar" id="fixed-sidebar" class="input-switch-alt">
+                                            </li>
+                                            <li>
+                                                <label for="closed-sidebar">Closed sidebar</label>
+                                                <input type="checkbox" data-toggletarget="closed-sidebar" id="closed-sidebar" class="input-switch-alt">
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="content-box">
+                                    <h3 class="content-box-header bg-primary">Institution Details</h3>
+                                    <div class="content-box-wrapper">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <h2><%= @institution.name %></h2>
+                                                <br>
+                                                <div class="row">
+                                                    <div class="col-xs-1">
+                                                        <h4 class="glyphicon glyphicon-map-marker"></h4>
+                                                    </div>
+                                                    <div class="col-xs-10">
+                                                        <h4><%= @institution.address_1 %></h4>
+                                                        <h4><%= @institution.address_2 %></h4>
+                                                        <h4><%= @institution.city %> <%= @institution.zip %></h4>
+                                                        <h4><%= @institution.state %>, <%= @institution.country_name %></h4>
+                                                        <br>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <br>
+                                                        <% if @employees.any? %>
+                                                            <table class="table table-stripped" id="hospital_table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>RM Number</th>
+                                                                        <th>Full Name</th>
+                                                                        <th>Email</th>
+                                                                        <th>Actions</td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <% @employees.each do |employee| %>
+                                                                        <tr>
+                                                                            <td><%= employee.rm_number %></td>
+                                                                            <td><%= employee.full_name %></td>
+                                                                            <td><%= employee.email %></td>
+                                                                            <td>
+                                                                                <%= link_to 'Details', user_path(employee), class: 'btn btn-info' %>
+                                                                                <%= link_to 'Delete', institution_employee_path(@institution, employee), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+                                                                            </td>
+                                                                        </tr>
+                                                                    <% end %>
+                                                                </tbody>
+                                                            </table>
+                                                            <br>
+                                                            <%= link_to 'Add Employee', new_institution_employee_path(@institution), class: 'btn btn-block btn-primary' %>
+                                                        <% else %>
+                                                            <div class="alert alert-info">You don't have any admins right now.</div>
+                                                        <% end %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  <% else %>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                              <h2 class="mrg10A">Institution Details</h2>
+                              <p class="ml-10 h5 mt-20">To continue working, we need to verify that you are the authorize person who is in charge of this institution.</p>
+                              <p class="mt-10 ml-10 h5">Please enter your verification number</p>
+                            </div>
+                          </div>
+                          <div class="row pl-60 mt-30">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                              <div>
+                                                  <span class="h5">
+                                                      <strong>Your MR#</strong>
+                                                  </span>
+                                <span class="ml-10 h5 ml-35"><%= current_user.rm_number %></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row pl-60 mt-30">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                              <form action="" id="inst-verify-number">
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label h5 p-0"><strong>Verification number</strong></label>
+                                  <div class="col-sm-5 p-0">
+                                    <input type="text" name="verf_no" id="verf_no" class="form-control" placeholder="Enter number">
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                          <div class="row pl-60">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+                              <div class="mt-20">
+                                <button class="btn ra-100 btn-primary btn-sm">Next</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  <% end %>
+
+              </div>
+          </div>
+        </div>
+    </div>
+</div>

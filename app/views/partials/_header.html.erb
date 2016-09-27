@@ -1,0 +1,43 @@
+<div id="page-header" class="bg-gradient-9">
+<div id="mobile-navigation">
+<button id="nav-toggle" class="collapsed" data-toggle="collapse" data-target="#page-sidebar"><span></span></button>
+<a href="/" class="logo-content-small" title="MonarchUI"></a>
+</div>
+<div id="header-logo" class="logo-bg">
+<a href="/" class="logo-content-big" title="MonarchUI">
+    Monarch <i>UI</i>
+    <span>The perfect solution for user interfaces</span>
+</a>
+<a href="/" class="logo-content-small" title="MonarchUI">
+    Monarch <i>UI</i>
+    <span>The perfect solution for user interfaces</span>
+</a>
+<a id="close-sidebar" href="#" title="Close sidebar">
+    <i class="glyph-icon icon-angle-left"></i>
+</a>
+</div>
+<div id="header-nav-left">
+<div class="user-account-btn dropdown">
+    <a title="My Account" class="user-profile clearfix" data-toggle="dropdown">
+      <img width="28" src="<%= gravatar_image_url current_user.email %>" alt="<%= current_user.full_name %>">
+        <span><%= current_user.full_name %></span>
+    </a>
+</div>
+</div><!-- #header-nav-left -->
+
+<div id="header-nav-right">
+  <% if not @current_web_admin %>
+    <%= link_to edit_user_registration_path, class: 'header-btn tooltip-button', id: 'logout-btn', data: { placement: 'bottom' }, title: 'Edit Profile' do %>
+      <i class="glyph-icon icon-user"></i>
+    <% end %>
+  <% end %>
+  <%= link_to destroy_user_session_path, method: :delete, class: 'header-btn tooltip-button', id: 'logout-btn', data: { placement: 'bottom' }, title: 'Logout' do %>
+    <i class="glyph-icon icon-power-off"></i>
+  <% end %>
+  &nbsp;&nbsp;
+  <%= link_to edit_user_path({id: current_user.id}), class: 'btn btn-primary tooltip-button', id: 'logout-btn', data: { placement: 'bottom' }, title: current_user.rm_number do %>
+    RM Number: <%= current_user.rm_number %>
+  <% end %>
+</div><!-- #header-nav-right -->
+
+</div>

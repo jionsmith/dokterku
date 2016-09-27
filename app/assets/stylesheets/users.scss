@@ -1,0 +1,61 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.steps-flow{
+  >li{
+    display:inline-block;
+    border: 1px solid #f1f1f1;
+    &.done{
+      background: #00bca4;
+      color: white;
+    }
+  }
+}
+
+.wrap-default-picture{
+  width: 200px;
+  overflow: hidden;
+  >img{
+    max-width: 100%;
+  }
+}
+.form-upload-photo{
+  .caption{
+    width: 200px;
+  }
+}
+
+#upl-fr-pc{
+  .wrap-field{
+    position: relative;
+  }
+  input[type='file']{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+#step3{
+  hr {
+    border:none;
+    border-top: 3px dotted #f1f1f1;
+    color:#fff;
+    background-color:#fff;;
+  }
+}
+
+#step5{
+  .wrap-photo{
+    width: 50px;
+    height: 50px;
+    border: 2px dotted #f1f1f1;
+    overflow: hidden;
+    img{
+      max-width: 100%;
+    }
+  }
+}
